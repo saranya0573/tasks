@@ -105,4 +105,33 @@ void loop()
   delay(1000);
 }
 
+task 5
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27,16,2);
+
+void setup()
+{
+  lcd.init();
+  lcd.backlight();
+}
+
+void loop()
+{
+  int value = analogRead(A0);
+
+  lcd.setCursor(0,0);
+  lcd.print("LDR:");
+  lcd.print(value);
+  lcd.print("   ");
+
+  lcd.setCursor(0,1);
+
+  if(value>500)
+    lcd.print("BRIGHT      ");
+  else
+    lcd.print("DARK        ");
+
+  delay(500);
+}
+
 
