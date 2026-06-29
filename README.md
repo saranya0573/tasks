@@ -75,4 +75,34 @@ void loop()
 }
 }
 
+task 4
+#include <BluetoothSerial.h>
+
+BluetoothSerial blt;
+
+int flame = 4;
+
+void setup()
+{
+  pinMode(flame, INPUT);
+  Serial.begin(9600);
+  blt.begin("ESP32");
+}
+
+void loop()
+{
+  if (digitalRead(flame) == LOW)
+  {
+    Serial.println("Flame Detected");
+    blt.println("Flame Detected");
+  }
+  else
+  {
+    Serial.println("No Flame");
+    blt.println("No Flame");
+  }
+
+  delay(1000);
+}
+
 
