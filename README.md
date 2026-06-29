@@ -24,3 +24,23 @@ void loop()
 }
 }
 
+task2
+
+#include <SoftwareSerial.h>
+SoftwareSerial blt(10,11);
+int gaspin =A2
+
+void setup()
+{
+Serial.begin(9600);
+blt.begin(9600);
+}
+
+void loop()
+{
+int gasvalue = analogRead(gaspin);
+blt.print("gas value:");
+Serial.println(gasvalue);
+blt.println(gasvalue);
+delay(1000);
+}
