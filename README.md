@@ -44,3 +44,35 @@ Serial.println(gasvalue);
 blt.println(gasvalue);
 delay(1000);
 }
+
+task 3
+
+#include <bluetoothSerial.h>
+bluetoothSerial blt;
+int led = 2;
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  Serial.begin(115200);
+  blt.begin("ESP32");
+}
+
+void loop()
+{
+  if(blt.available))
+  {
+   data = blt.read();
+   Serial.println(data);
+   }
+  if(data=='A')
+  {
+  digitalWrite(led, HIGH);
+  }
+  if(data=='B')
+  {
+  digitalWrite(led, LOW);
+}
+}
+
+
